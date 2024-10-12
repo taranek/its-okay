@@ -27,18 +27,18 @@ function App() {
       <div className={`relative z-10 min-h-screen flex flex-col transition-colors duration-1000 ${
         isWhiteBackground ? 'text-black' : 'text-white'
       }`}>
-        <header className="p-4 sm:p-6 flex justify-end items-center">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-current opacity-0 pointer-events-none">
-            <Menu size={24} className="sm:w-8 sm:h-8" />
-          </button>
-        </header>
-        <main className="flex-grow flex">
-          {showNavigation && (
-            <Navigation isOpen={isMenuOpen} isWhiteBackground={isWhiteBackground} />
-          )}
-          <Content 
-            isWhiteBackground={isWhiteBackground}
-            setBackgroundColor={setBackgroundColor}
+        {showNavigation && (<header className="p-4 sm:p-6 flex justify-end items-center">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-current opacity-0 pointer-events-none">
+              <Menu size={24} className="sm:w-8 sm:h-8"/>
+            </button>
+          </header>)}
+          < main className="flex-grow flex">
+        {showNavigation && (
+          <Navigation isOpen={isMenuOpen} isWhiteBackground={isWhiteBackground}/>
+      )}
+      <Content
+        isWhiteBackground={isWhiteBackground}
+        setBackgroundColor={setBackgroundColor}
           />
         </main>
       </div>
